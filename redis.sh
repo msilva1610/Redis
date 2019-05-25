@@ -22,3 +22,8 @@ tar xzvf redis-stable.tar.gz
 echo -e "-- make...\n"
 cd redis-stable
 make
+# instalar ##########################################################################
+echo -e "-- instalar redis...\n"
+sudo make install
+sudo mkdir /etc/redis
+echo -e "-- criando arquivo Redis.conf...\n"

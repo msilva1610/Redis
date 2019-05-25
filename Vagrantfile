@@ -11,6 +11,8 @@ Vagrant.configure("2") do |config|
                          ip: '192.168.10.10'
     # master01_config.vm.network :forwarded_port, guest: 6379, host: 6379                     
     master01_config.vm.provision :shell, path: "redis.sh"
+    master01_config.vm.provision :shell, path: "createRedisconf.sh"
+
   end
   config.vm.define :slave01 do |slave01_config|
     slave01_config.vm.hostname = 'slave01'
