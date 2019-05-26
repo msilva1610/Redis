@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
     master01_config.vm.provision :shell, path: "createRedisconf.sh"
     master01_config.vm.provision :shell, path: "createredisservices.sh"
     master01_config.vm.provision :shell, path: "redis02.sh"
-
+    master01_config.vm.provision :shell, path: "createsentinelconf.sh"
   end
   config.vm.define :slave01 do |slave01_config|
     slave01_config.vm.hostname = 'slave01'
