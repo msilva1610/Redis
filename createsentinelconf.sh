@@ -15,3 +15,5 @@ EOD
 # inicia o sentinel ##########################################################################
 echo -e "-- Iniciando o sentinel.conf...\n"
 sudo redis-server /etc/redis/sentinel.conf --sentinel
+echo -e "-- Sentinel iniciado...\n"
+echo -e "-- Fim do script...\n"
