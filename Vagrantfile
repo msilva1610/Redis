@@ -9,9 +9,11 @@ Vagrant.configure("2") do |config|
     master01_config.vm.hostname = 'master01'
     master01_config.vm.network :private_network,
                          ip: '192.168.10.10'
-    # master01_config.vm.network :forwarded_port, guest: 6379, host: 6379                     
-    master01_config.vm.provision :shell, path: "redis.sh"
+    master01_config.vm.network :forwarded_port, guest: 6379, host: 6379                     
+    master01_config.vm.provision :shell, path: "redis01.sh"
     master01_config.vm.provision :shell, path: "createRedisconf.sh"
+    master01_config.vm.provision :shell, path: "createredisservices.sh"
+    master01_config.vm.provision :shell, path: "redis02.sh"
 
   end
   config.vm.define :slave01 do |slave01_config|

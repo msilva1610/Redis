@@ -8,7 +8,10 @@ echo -e "-- Atualizando packages list\n"
 sudo apt-get update -y -qq
 # Pacotes ##########################################################################
 echo -e "-- Atualizando pacotes e dependicias\n"
-sudo apt-get install build-essential tcl -y
+sudo apt-get install build-essential -y
+# Pacotes ##########################################################################
+echo -e "-- Atualizando pacotes e dependicias\n"
+sudo apt-get install tcl -y
 # Pacotes ##########################################################################
 echo -e "-- mudando para o dir /tmp\n"
 cd /tmp
