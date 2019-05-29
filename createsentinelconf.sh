@@ -13,7 +13,8 @@ sentinel failover-timeout mymaster 180000
 sentinel deny-scripts-reconfig yes
 EOD
 # inicia o sentinel ##########################################################################
-echo -e "-- Iniciando o sentinel.conf...\n"
-sudo redis-server /etc/redis/sentinel.conf --sentinel
-echo -e "-- Sentinel iniciado...\n"
+# echo -e "-- Iniciando o sentinel.conf...\n"
+# sudo redis-server /etc/redis/sentinel.conf --sentinel
+# echo -e "-- Sentinel iniciado...\n"
 echo -e "-- Fim do script...\n"
+# sudo systemctl daemon-reload

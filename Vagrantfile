@@ -8,12 +8,13 @@ Vagrant.configure("2") do |config|
   config.vm.define :master01 do |master01_config|
     master01_config.vm.hostname = 'master01'
     master01_config.vm.network :private_network, ip: '192.168.10.10'
-    # master01_config.vm.network :forwarded_port, guest: 6379, host: 6379                     
+    master01_config.vm.network :forwarded_port, guest: 6379, host: 6379                     
     master01_config.vm.provision :shell, path: "redis01.sh"
     master01_config.vm.provision :shell, path: "createRedisconf.sh"
     master01_config.vm.provision :shell, path: "createredisservices.sh"
     master01_config.vm.provision :shell, path: "redis02.sh"
     master01_config.vm.provision :shell, path: "createsentinelconf.sh"
+    master01_config.vm.provision :shell, path: "createsentinelservice.sh"
   end
   config.vm.define :slave01 do |slave01_config|
     slave01_config.vm.hostname = 'slave01'
@@ -22,7 +23,8 @@ Vagrant.configure("2") do |config|
     slave01_config.vm.provision :shell, path: "createredisConfSlave.sh"
     slave01_config.vm.provision :shell, path: "createredisservices.sh"
     slave01_config.vm.provision :shell, path: "redis02.sh"
-    slave01_config.vm.provision :shell, path: "createsentinelconf.sh"                         
+    slave01_config.vm.provision :shell, path: "createsentinelconf.sh"  
+    slave01_config.vm.provision :shell, path: "createsentinelservice.sh"                           
   end
   config.vm.define :slave02 do |slave02_config|
     slave02_config.vm.hostname = 'slave02'
@@ -31,7 +33,8 @@ Vagrant.configure("2") do |config|
     slave02_config.vm.provision :shell, path: "createredisConfSlave.sh"
     slave02_config.vm.provision :shell, path: "createredisservices.sh"
     slave02_config.vm.provision :shell, path: "redis02.sh"
-    slave02_config.vm.provision :shell, path: "createsentinelconf.sh"    
+    slave02_config.vm.provision :shell, path: "createsentinelconf.sh" 
+    slave02_config.vm.provision :shell, path: "createsentinelservice.sh"        
   end
   config.vm.define :slave03 do |slave03_config|
     slave03_config.vm.hostname = 'slave03'
@@ -41,7 +44,7 @@ Vagrant.configure("2") do |config|
     slave03_config.vm.provision :shell, path: "createredisservices.sh"
     slave03_config.vm.provision :shell, path: "redis02.sh"
     slave03_config.vm.provision :shell, path: "createsentinelconf.sh"    
-  
+    slave03_config.vm.provision :shell, path: "createsentinelservice.sh"        
   end  
   config.vm.define :haproxy01 do |haproxy01_config|
     haproxy01_config.vm.hostname = 'haproxy01'
